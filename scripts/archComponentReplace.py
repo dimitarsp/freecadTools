@@ -3,17 +3,24 @@
 import FreeCAD, Draft, Arch
 
 
-objClone = FreeCAD.ActiveDocument.ActiveObject
+# select first the element to be replaced and then the element to replace it
 
-# this line does not work. I am not sure what the API name is of BIM_unclone from here:
-# https://github.com/yorikvanhavre/BIM_Workbench/blob/d2613c1c802f9e374ab32f8a7857b7df719a0fdf/BimUnclone.py
-objNew = Arch.Unclone(objClone)
+sel = Gui.Selection.ActiveObject
 
-objNew.Placement.Base.X =  objClone.Placement.Base.X
-objNew.Placement.Base.Y =  objClone.Placement.Base.Y
-objNew.Placement.Base.Z =  objClone.Placement.Base.Z
+# check if objects are architectural components
 
-if objNew.Base == True:
-   sketchExisting = objNew.base
-   sketchNew = sketchExiting copy # not sure what the code is to copy
-   objNew.base = sketchNew
+oldObj = sel[0]
+newObj = sel[1]
+
+# get subtractions
+subs = oldObj.Subtractions
+
+
+# Check where the object is in the tree
+
+
+
+# assing subtractions to new object
+newObj.Subtractions = subs
+
+# replace element in the tree structre
