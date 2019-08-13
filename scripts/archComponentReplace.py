@@ -18,7 +18,7 @@ subs = oldObj.Subtractions
 
 # Check where the object is in the tree
 
-
+# possible to replace the contents of the object instead of replacing the object?
 
 # assing subtractions to new object
 newObj.Subtractions = subs
